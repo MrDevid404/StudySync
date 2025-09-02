@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudySync</title>
+
+    <link rel="shortcut icon" href="images/StudySync.png" type="image/x-icon" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </head>
+  <style>
+    .form-control {
+      background-color: #f6f7fb;
+    }
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #106efd;
+      background-color: #f6f7fb;
+    }
+    input {
+      background-color: #f6f7fb;
+    }
+    #sessionPomodoro {
+      font-family: "Inter", sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      display: none;
+    }
+
+    #sessionInputSection {
+      display: block; /* show start page first */
+    }
+
+    .timer-card {
+      background: #111827;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    #time {
+      font-size: 4rem;
+      font-weight: bold;
+      margin: 20px 0;
+      letter-spacing: 2px;
+    }
+
+    .btn-glow {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-glow:hover {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
+      transform: scale(1.05);
+    }
+  </style>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary shadow-sm"
+      id="mainNav"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#"
+          >📚 Study<span class="text-primary">Sync</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#dashboard">Dashboard</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- =========================
+         Hero Section
+    ============================== -->
+    <seciton class="my-5" id="sessionInputSection" style="height: 100%;">
+      <div class="d-flex justify-content-center align-items-between">
+        <div class="card p-5 shadow-lg">
+          <h1 class="card-title text-center">Create a Session</h1>
+          <p class="text-center">
+            Enter the name of your session to get started.
+          </p>
+          <div class="card-body">
+            <h5 class="mx-2">Enter the name of your session</h5>
+            <input
+              type="text"
+              class="form-control rounded-3"
+              id="sessionInput"
+              placeholder="e.g. Study Session"
+            />
+            <button
+              class="btn btn-primary mt-3 mx-3 rounded-pill"
+              onclick="startSession()"
+            >
+              Start Session
+            </button>
+          </div>
+        </div>
+      </div>
+    </seciton>
+
+    <section
+      class="py-5 d-flex align-items-center justify-content-center h-100"
+      id="sessionPomodoro"
+    >
+      <div class="timer-card">
+        <h1 id="sessionHeading">Your Session</h1>
+        <h2>Pomodoro Timer</h2>
+        <h6 id="session-label">Work Session</h6>
+        <div id="time">25:00</div>
+
+        <div class="d-flex justify-content-center gap-2">
+          <button id="startBtn" class="btn btn-primary btn-glow">Start</button>
+          <button id="pauseBtn" class="btn btn-warning btn-glow">Pause</button>
+          <button id="resetBtn" class="btn btn-danger btn-glow">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Footer Section
+    ============================== -->
+    <footer class="footer pt-5" id="mainFooter">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Company Info -->
+          <div class="col-lg-4 col-md-6">
+            <h3 class="footer-title">About Company</h3>
+            <p class="mb-4">
+              We're dedicated to delivering innovative solutions that empower
+              businesses to thrive in the digital age.
+            </p>
+            <div class="social-links mb-4">
+              <a target="_blank" rel="noopener noreferrer" href="#"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="col-lg-2 col-md-6">
+            <h3 class="footer-title">Support</h3>
+            <ul class="footer-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Community</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="col-lg-4 col-md-6">
+            <h3 class="footer-title">Newsletter</h3>
+            <p class="mb-4">
+              Subscribe to our newsletter for updates, news, and exclusive
+              offers.
+            </p>
+            <form class="mb-4">
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control newsletter-input"
+                  placeholder="Enter your email"
+                />
+                <button class="btn btn-subscribe text-white" type="submit">
+                  Subscribe
+                </button>
+              </div>
+            </form>
+            <p class="small">
+              By subscribing, you agree to our Privacy Policy and consent to
+              receive updates.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom mt-5">
+        <div class="container">
+          <div class="row py-3">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0">&copy; 2024 Your Company. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script>
+      // Get references to elements
+      const sessionInputSection = document.getElementById(
+        "sessionInputSection"
+      );
+      const sessionPomodoroSection = document.getElementById("sessionPomodoro");
+      const sessionInput = document.getElementById("sessionInput");
+      const sessionHeading = document.getElementById("sessionHeading");
+      const timeDisplay = document.getElementById("time");
+      const sessionLabel = document.getElementById("session-label");
+      const startBtn = document.getElementById("startBtn");
+      const pauseBtn = document.getElementById("pauseBtn");
+      const resetBtn = document.getElementById("resetBtn");
+
+      // Timer variables
+      let workTime = 25 * 60; // 25 mins
+      let shortBreak = 5 * 60; // 5 mins
+      let longBreak = 15 * 60; // 15 mins
+      let cycles = 0; // track completed work sessions
+      let timeLeft = workTime;
+      let timer;
+      let isRunning = false;
+      let onBreak = false;
+
+      // Function to start the session
+      function startSession() {
+        const input = sessionInput.value.trim();
+        sessionHeading.textContent = input !== "" ? input : "Unnamed Session";
+
+        // Hide input section, show timer section
+        sessionInputSection.style.display = "none";
+        sessionPomodoroSection.style.display = "block";
+      }
+
+      // Format seconds into mm:ss
+      function formatTime(seconds) {
+        const m = Math.floor(seconds / 60);
+        const s = seconds % 60;
+        return `${m.toString().padStart(2, "0")}:${s
+          .toString()
+          .padStart(2, "0")}`;
+      }
+
+      // Update display
+      function updateDisplay() {
+        timeDisplay.textContent = formatTime(timeLeft);
+      }
+
+      // Start timer
+      function startTimer() {
+        if (!isRunning) {
+          isRunning = true;
+          timer = setInterval(() => {
+            if (timeLeft > 0) {
+              timeLeft--;
+              updateDisplay();
+            } else {
+              clearInterval(timer);
+              isRunning = false;
+
+              if (!onBreak) {
+                cycles++;
+                if (cycles % 4 === 0) {
+                  timeLeft = longBreak;
+                  sessionLabel.textContent = "Long Break";
+                } else {
+                  timeLeft = shortBreak;
+                  sessionLabel.textContent = "Short Break";
+                }
+                onBreak = true;
+              } else {
+                timeLeft = workTime;
+                sessionLabel.textContent = "Work Session";
+                onBreak = false;
+              }
+
+              updateDisplay();
+              startTimer(); // auto-start next session
+            }
+          }, 1000);
+        }
+      }
+
+      // Pause timer
+      function pauseTimer() {
+        clearInterval(timer);
+        isRunning = false;
+      }
+
+      // Reset timer
+      function resetTimer() {
+        clearInterval(timer);
+        isRunning = false;
+        onBreak = false;
+        timeLeft = workTime;
+        cycles = 0;
+        sessionLabel.textContent = "Work Session";
+        updateDisplay();
+      }
+
+      // Event listeners for timer buttons
+      startBtn.addEventListener("click", startTimer);
+      pauseBtn.addEventListener("click", pauseTimer);
+      resetBtn.addEventListener("click", resetTimer);
+
+      // Initial display
+      updateDisplay();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+padding hero section index
+hero sect should be the only thing
+reduce border radius for rec secrion
+
+
+  <!-- =========================
+         About Section
+    ============================== -->
+    <section class="mx-3 my-5" id="About">
+      <div class="container text-start d-flex-sm align-items-center justify-content-center">
+        <h1 class="mt-5 mx-3 fw-bold">
+          About Study<span class="text-primary">Sync</span>
+        </h1>
+        <p class="subtitle mx-5">The Vision</p>
+        <div class="about-beginning text-light p-5">
+          <h2 class="fw-bold">The Beginning</h2>
+          <p class=>
+            StudySync was born from a simple spark — the desire to learn, not
+            alone, but together. That spark grew into a flame, setting hearts
+            ablaze with courage and unity, turning struggles into strength and
+            every lesson into brighter tomorrows. StudySync was born from a
+            simple spark — the desire to learn, not alone, but together. That
+            spark grew into a flame, setting hearts ablaze with courage and
+            unity, turning struggles into strength and every lesson into
+            brighter tomorrows. StudySync was born from a simple spark — the
+            desire to learn, not alone, but together. That spark grew into a
+            flame, setting hearts ablaze with courage and unity, turning
+            struggles into strength and every lesson into brighter tomorrows.
+          </p>
+        </div>
+        <div class="about-struggles text-end text-light p-5">
+          <h2 class="fw-bold">The Struggles</h2>
+          <p>
+            Every flame is tested by winds, and ours was no different. StudySync
+            faced challenges, doubts, and late nights filled with questions.
+            Yet, through unity and persistence, struggles were transformed into
+            stepping stones, and every obstacle became proof of what learning
+            together could overcome.
+            Every flame is tested by winds, and ours was no different. StudySync
+            faced challenges, doubts, and late nights filled with questions.
+            Yet, through unity and persistence, struggles were transformed into
+            stepping stones, and every obstacle became proof of what learning
+            together could overcome.
+            Every flame is tested by winds, and ours was no different. StudySync
+            faced challenges, doubts, and late nights filled with questions.
+            Yet, through unity and persistence, struggles were transformed into
+            stepping stones, and every obstacle became proof of what learning
+            together could overcome.
+          </p>
+        </div>
+        <div class="about-future text-light p-5">
+          <h2 class="fw-bold">The Future.</h2>
+          <p class=>
+            StudySync was born from a simple spark — the desire to learn, not
+            alone, but together. That spark grew into a flame, setting hearts
+            ablaze with courage and unity, turning struggles into strength and
+            every lesson into brighter tomorrows. StudySync was born from a
+            simple spark — the desire to learn, not alone, but together. That
+            spark grew into a flame, setting hearts ablaze with courage and
+            unity, turning struggles into strength and every lesson into
+            brighter tomorrows. StudySync was born from a simple spark — the
+            desire to learn, not alone, but together. That spark grew into a
+            flame, setting hearts ablaze with courage and unity, turning
+            struggles into strength and every lesson into brighter tomorrows.
+          </p>
+        </div>
+        <div class="container mt-3 d-flex-sm align-items-center justify-content-center">
+          <div class="row g-1">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="card shadow-none" style="min-height: 265px">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center m-4">
+                    The Breakthrough
+                  </h5>
+                  <p class="card-text text-center">
+                    What began as a quiet idea soon became a voice that
+                    resonated across hearts. StudySync grew as students joined
+                    hands, sharing knowledge and courage. With every lesson
+                    exchanged, the spark blazed brighter, proving that true
+                    strength is born in community.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="card shadow-none" style="min-height: 265px">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center m-4">
+                    The Movement
+                  </h5>
+                  <p class="card-text text-center">
+                    StudySync evolved into more than just a platform — it became
+                    a movement of dreamers and doers. A family bound by
+                    resilience and hope, where struggles turned into strength
+                    and every shared victory echoed with the promise of a
+                    brighter tomorrow.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="card shadow-none" style="min-height: 265px">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center m-4">
+                    The Movement
+                  </h5>
+                  <p class="card-text text-center">
+                    StudySync evolved into more than just a platform — it became
+                    a movement of dreamers and doers. A family bound by
+                    resilience and hope, where struggles turned into strength
+                    and every shared victory echoed with the promise of a
+                    brighter tomorrow.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

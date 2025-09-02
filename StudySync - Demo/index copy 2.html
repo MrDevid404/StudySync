@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudySync</title>
+
+    <link rel="shortcut icon" href="images/StudySync.png" type="image/x-icon" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </head>
+
+  <body>
+    <!-- =========================
+         Navbar Section
+    ============================== -->
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary shadow-sm"
+      id="mainNav"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+          📚 Study<span class="text-primary">Sync</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#leaderboard">Login</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="btn btn-primary rounded-pill px-4 mx-2"
+                href="signup.html"
+                style="background: #106efd"
+              >
+                Get Started
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- =========================
+         Hero Section
+    ============================== -->
+    <section
+      class="mx-3 mt-5 p-5 d-flex align-items-center justify-content-center"
+      style="height: 75%"
+      id="hero"
+    >
+      <div class="section-title-one p-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-center">
+                <div class="content" style="max-width: 700px; margin: auto">
+                  <h1 class="fw-bold mb-4">
+                    Join the Movement. Redefine Learning with StudySync!
+                  </h1>
+                  <p class="mb-4">
+                    Track your progress, join study groups, and boost your
+                    learning. Begin your journey with us now!
+                  </p>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="signup.html"
+                    class="btn btn-primary btn-lg rounded-pill py-3 px-5"
+                  >
+                    Register Here
+                    <i class="bi bi-arrow-up-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Browse Section
+    ============================== -->
+    <section
+      class="my-5 p-5 bg-dark text-light d-flex align-items-center"
+      style="height: auto"
+      id="browse"
+    >
+      <div class="container">
+        <div class="row g-3">
+          <div class="col-lg-7">
+            <h1 class="fw-bold">Find study sessions you'll love.</h1>
+            <p class="text-secondary">
+              Explore a wide range of topics tailored to your interests. From
+              math problem sets to literature discussions, discover learning
+              experiences that keep you motivated.
+            </p>
+          </div>
+          <div class="col-lg-5">
+            <div class="container">
+              <form id="searchForm">
+                <div class="input-group rounded-pill overflow-hidden shadow-sm">
+                  <select class="form-select border-0" id="categorySelect">
+                    <option selected>All Categories</option>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                    <option value="3">Category 3</option>
+                  </select>
+                  <input
+                    type="search"
+                    class="form-control border-0"
+                    placeholder="Search..."
+                    id="searchInput"
+                  />
+                  <button class="btn btn-primary px-4" type="submit">
+                    Search
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Study Sessions Section
+    ============================== -->
+    <section
+      class="mx-3 d-flex align-items-center"
+      id="study-sessions"
+      style="height: auto"
+    >
+      <div class="container text-start">
+        <div class="container m-3">
+          <div class="row g-3" id="sessionsRow">
+            <div
+              class="col-md-6 col-sm-12 d-flex flex-column justify-content-evenly"
+            >
+              <h2
+                class="fw-bold text-dark m-3 text-light fs-1"
+                id="sessionsHeading"
+              >
+                Boost your productivity with Study Sessions!
+              </h2>
+              <p class="text-secondary mb-5">
+                Use our Pomodoro timer and join study rooms. Lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Inventore tempora ducimus
+                cupiditate voluptates. Nobis, atque!
+              </p>
+              <a href="#" class="btn btn-primary btn-lg p-3 rounded-pill w-50"
+                >Start Session</a
+              >
+            </div>
+            <div class="col-6">
+              <img
+                class="img-fluid d-none d-sm-block"
+                src="images/undraw_online-learning_tgmv.svg"
+                alt=""
+                style="width: 75%; height: auto"
+              />
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+        Challenges Sessions Section
+    ============================== -->
+    <section
+      class="mx-3 my-3 d-flex align-items-center"
+      id="study-sessions"
+      style="height: auto"
+    >
+      <div class="container text-start">
+        <div class="container m-3">
+          <div class="row g-3" id="sessionsRow">
+            <div class="col-6">
+              <img
+                class="img-fluid d-none d-sm-block"
+                src="images/checklist-71.svg"
+                alt=""
+                style="width: 75%; height: auto"
+              />
+            </div>
+            <div
+              class="col-md-6 col-sm-12 d-flex flex-column justify-content-evenly"
+            >
+              <h2
+                class="fw-bold text-dark m-3 text-light fs-1"
+                id="sessionsHeading"
+              >
+                Put yourself to the test with Challenges!
+              </h2>
+              <p class="text-secondary mb-5">
+                Take on challenges and push your limits. Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Inventore tempora ducimus
+                cupiditate voluptates. Nobis, atque!
+              </p>
+              <a href="#" class="btn btn-primary btn-lg p-3 rounded-pill w-50"
+                >Start Session</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Quiz Section
+    ============================== -->
+    <section
+      class="mx-3 d-flex align-items-center"
+      id="study-sessions"
+      style="height: auto"
+    >
+      <div class="container text-start">
+        <div class="container m-3">
+          <div class="row g-3" id="sessionsRow">
+            <div
+              class="col-md-6 col-sm-12 d-flex flex-column justify-content-evenly"
+            >
+              <h2
+                class="fw-bold text-dark m-3 text-light fs-1"
+                id="sessionsHeading"
+              >
+                Challenge your knowledge with Quizzes!
+              </h2>
+              <p class="text-secondary mb-5">
+                Take quizes and learn new things. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Inventore tempora ducimus
+                cupiditate voluptates. Nobis, atque!
+              </p>
+              <a href="#" class="btn btn-primary btn-lg p-3 rounded-pill w-50"
+                >Start Session</a
+              >
+            </div>
+            <div class="col-6">
+              <img
+                class="img-fluid d-none d-sm-block"
+                src="images/notes-62.svg"
+                alt=""
+                style="width: 75%; height: auto"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Challenges Section
+    ============================== -->
+    <section class="mx-3 my-5" id="challenges">
+      <div class="container text-start">
+        <h1 class="mt-5 mx-3 fw-bold">🔥 CHALLENGES</h1>
+        <p class="subtitle mx-5">Push yourself to the limit!</p>
+        <div
+          class="scrolling-wrapper row flex-row flex-nowrap mt-4 p-5"
+          id="challengesWrapper"
+        >
+          <!-- Challenge cards will be dynamically added here -->
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="30-days-of-learning.html"
+            >
+              <div class="card card-block card-1">
+                <div class="m-5"></div>
+                <h1 class="fw-bold fs-1 text-light">📅 30 DAYS OF LEARNING.</h1>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <a target="_blank" rel="noopener noreferrer" href="rapid.html">
+              <div class="card card-block card-2">
+                <div class="m-5"></div>
+                <h1 class="fw-bold fs-1 text-light">⏱️ RAPID.</h1>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="how-much-do-i-know.html"
+            >
+              <div class="card card-block card-3">
+                <div class="m-5"></div>
+                <div>
+                  <h1 class="fw-bold fs-1 text-light">
+                    🧠 HOW MUCH DO I KNOW?
+                  </h1>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <a target="_blank" rel="noopener noreferrer" href="math-blitz.html">
+              <div class="card card-block card-4">
+                <div class="m-5"></div>
+                <div>
+                  <h1 class="fw-bold fs-1 text-light">🧮 MATH BLITZ</h1>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="grammar-gauntlet.html"
+            >
+              <div class="card card-block card-5">
+                <div class="m-5"></div>
+                <div>
+                  <h1 class="fw-bold fs-1 text-light">GRAMMAR GAUNTLET</h1>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="fact-or-fiction.html"
+            >
+              <div class="card card-block card-6">
+                <div class="m-5"></div>
+                <div>
+                  <h1 class="fw-bold fs-1 text-light">FACT OR FICTION?</h1>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Quizzes Section
+    ============================== -->
+    <section class="mx-3 my-5 py-5" id="quizzes">
+      <div class="section-title-one">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-center">
+                <div class="content">
+                  <h1 class="fw-bold">NOT SURE IF YOU'RE READY?</h1>
+                  <p>
+                    Test yourself by taking quizes with others in real-time!
+                  </p>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="quizes.html"
+                    class="btn btn-primary rounded-pill py-3 px-5"
+                    >Explore Quizes</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Footer Section
+    ============================== -->
+    <footer class="footer pt-5" id="mainFooter">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Company Info -->
+          <div class="col-lg-4 col-md-6">
+            <h3 class="footer-title">
+              About Study<span class="text-primary">Sync</span>
+            </h3>
+            <p class="mb-4">
+              We're dedicated to delivering innovative solutions that empower
+              students to thrive in their learning journey.
+            </p>
+            <div class="social-links mb-4">
+              <a target="_blank" rel="noopener noreferrer" href="#"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#"><i class="bi bi-twitter"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-linkedin-in"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="col-lg-2 col-md-6">
+            <h3 class="footer-title">Support</h3>
+            <ul class="footer-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Community</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="col-lg-4 col-md-6">
+            <h3 class="footer-title">Newsletter</h3>
+            <p class="mb-4">
+              Subscribe to our newsletter for updates, news, and exclusive
+              offers.
+            </p>
+            <form class="mb-4">
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control newsletter-input"
+                  placeholder="Enter your email"
+                />
+                <button class="btn btn-subscribe text-white" type="submit">
+                  Subscribe
+                </button>
+              </div>
+            </form>
+            <p class="small">
+              By subscribing, you agree to our Privacy Policy and consent to
+              receive updates.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom mt-5">
+        <div class="container">
+          <div class="row py-3">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0">
+                &copy; 2025 StudyHub • Built with ❤️ for learners
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
