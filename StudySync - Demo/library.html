@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudySync</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <!-- =========================
+         Navbar Section
+    ============================== -->
+    <nav class="navbar navbar-expand-lg shadow-sm" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+          📚 Study<span class="text-primary">Sync</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#features"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Features
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#challenges">Challenges</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#study-sessions"
+                    >Study Sessions</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#flashcards">Flashcards</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#features-quiz">Quizes</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="btn btn-primary rounded-pill px-4"
+                href="signup.html"
+                style="background: #106efd"
+              >
+                Get Started
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- =========================
+         Library Section
+    ============================== -->
+    <section class="mx-3 my-5" id="study-library">
+      <div class="container text-md-start">
+        <h1 class="fw-bold text-dark m-3" id="libraryHeading">
+          📖 Study Library
+        </h1>
+        <div class="text-start m-3">
+          <p class="text-secondary" style="max-width: 40rem">
+            Browse through our extensive study library. Lorem ipsum dolor sit,
+            amet consectetur adipisicing elit. Optio, culpa enim magni nesciunt
+            rerum aperiam suscipit labore.
+          </p>
+        </div>
+        <div class="m-3">
+          <div class="p-2 d-flex align-items-center">
+            <h6 class="text-dark">Filter by Difficulty:</h6>
+            <div class="p-2">
+              <select id="difficultySelect" class="border rounded p-2">
+                <option value="All">All Difficulties</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Perfect">Perfect</option>
+              </select>
+            </div>
+          </div>
+          <h6 class="text-secondary m-3" id="viewingTopicsText">
+            Viewing All difficulties.
+          </h6>
+
+          <div id="topicsWrapper" class="p-3"></div>
+
+          <div
+            class="container d-flex-sm align-items-center justify-content-center"
+          >
+            <!-- Row 1 -->
+            <div class="row g-3 py-3" id="studyLibraryRow">
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card h-100 border-0">
+                  <img
+                    src="images/StudySync.png"
+                    class="card-img-top object-fit-cover"
+                    alt="Newton's laws"
+                    style="height: 180px"
+                  />
+                  <div class="card-body">
+                    <h6>
+                      <span class="badge badge-physics">Physics</span>
+                    </h6>
+                    <h5 class="fw-bold">Newton's Laws of Motion</h5>
+                    <p class="card-text">
+                      Explore how forces and motion interact, shaping everything
+                      from falling apples to rocket launches.
+                    </p>
+                    <a href="#" class="text-decoration-none fw-semibold"
+                      >Open</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100">
+                  <img
+                    src="images/StudySync.png"
+                    class="card-img-top object-fit-cover"
+                    alt="Algebra"
+                    style="height: 180px"
+                  />
+                  <div class="card-body">
+                    <h6>
+                      <span class="badge badge-mathematics">Mathematics</span>
+                    </h6>
+                    <h5 class="fw-bold">Introduction to Algebra</h5>
+                    <p class="card-text">
+                      Learn how to solve equations, work with variables, and
+                      understand the language of mathematics.
+                    </p>
+                    <a href="#" class="text-decoration-none fw-semibold"
+                      >Open</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 border-0">
+                  <img
+                    src="images/StudySync.png"
+                    class="card-img-top object-fit-cover"
+                    alt="History"
+                    style="height: 180px"
+                  />
+                  <div class="card-body">
+                    <h6>
+                      <span class="badge badge-history">History</span>
+                    </h6>
+                    <h5 class="fw-bold">The French Revolution</h5>
+                    <p class="card-text">
+                      Discover how a movement for freedom reshaped France and
+                      influenced revolutions worldwide.
+                    </p>
+                    <a href="#" class="text-decoration-none fw-semibold"
+                      >Open</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="row g-3 py-3" id="studyLibraryRow">
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card h-100 border-0">
+                  <img
+                    src="images/StudySync.png"
+                    class="card-img-top object-fit-cover"
+                    alt="Economics"
+                    style="height: 180px"
+                  />
+                  <div class="card-body">
+                    <h6>
+                      <span class="badge badge-economics">Economics</span>
+                    </h6>
+                    <h5 class="fw-bold">Taxation and Government Budgets</h5>
+                    <p class="card-text">
+                      Understand how governments raise money, manage spending,
+                      and balance national budgets.
+                    </p>
+                    <a href="#" class="text-decoration-none fw-semibold"
+                      >Open</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100">
+                  <img
+                    src="images/StudySync.png"
+                    class="card-img-top object-fit-cover"
+                    alt="Biology"
+                    style="height: 180px"
+                  />
+                  <div class="card-body">
+                    <h6>
+                      <span class="badge badge-biology">Biology</span>
+                    </h6>
+                    <h5 class="fw-bold">Cell Structure & Functions</h5>
+                    <p class="card-text">
+                      Dive into the building blocks of life—learn about
+                      organelles, membranes, and cellular processes.
+                    </p>
+                    <a href="#" class="text-decoration-none fw-semibold"
+                      >Open</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 border-0">
+                  <img
+                    src="images/StudySync.png"
+                    class="card-img-top object-fit-cover"
+                    alt="Chemistry"
+                    style="height: 180px"
+                  />
+                  <div class="card-body">
+                    <h6>
+                      <span class="badge badge-chemistry">Chemistry</span>
+                    </h6>
+                    <h5 class="fw-bold">Organic Chemistry Basics</h5>
+                    <p class="card-text">
+                      Explore hydrocarbons, functional groups, and the chemistry
+                      behind everyday life.
+                    </p>
+                    <a href="#" class="text-decoration-none fw-semibold"
+                      >Open</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="row g-3 py-3" id="studyLibraryRow">
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card h-100 border-0">
+                  <img
+                    src="images/StudySync.png"
+                    class="card-img-top object-fit-cover"
+                    alt="Computer Science"
+                    style="height: 180px"
+                  />
+                  <div class="card-body">
+                    <h6>
+                      <span class="badge badge-computer-science"
+                        >Computer Science</span
+                      >
+                    </h6>
+                    <h5 class="fw-bold">Introduction to Programming</h5>
+                    <p class="card-text">
+                      Learn the basics of coding, algorithms, and
+                      problem-solving with beginner-friendly examples.
+                    </p>
+                    <a href="#" class="text-decoration-none fw-semibold"
+                      >Open</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100">
+                  <img
+                    src="images/StudySync.png"
+                    class="card-img-top object-fit-cover"
+                    alt="Geography"
+                    style="height: 180px"
+                  />
+                  <div class="card-body">
+                    <h6>
+                      <span class="badge badge-geography">Geography</span>
+                    </h6>
+                    <h5 class="fw-bold">Climate & Weather Systems</h5>
+                    <p class="card-text">
+                      Explore how winds, rainfall, and global patterns shape
+                      climates around the world.
+                    </p>
+                    <a href="#" class="text-decoration-none fw-semibold"
+                      >Open</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 border-0">
+                  <img
+                    src="images/StudySync.png"
+                    class="card-img-top object-fit-cover"
+                    alt="Literature"
+                    style="height: 180px"
+                  />
+                  <div class="card-body">
+                    <h6>
+                      <span class="badge badge-literature">Literature</span>
+                    </h6>
+                    <h5 class="fw-bold">Shakespeare’s Tragedies</h5>
+                    <p class="card-text">
+                      Analyze themes of power, love, and fate in plays like
+                      Hamlet, Macbeth, and Othello.
+                    </p>
+                    <a href="#" class="text-decoration-none fw-semibold"
+                      >Open</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+      <div class="container text-center">
+        <p class="mb-0">© 2025 StudyHub • Built with ❤️ for learners</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document
+        .getElementById("locationSelect")
+        .addEventListener("change", function () {
+          const city = this.value;
+          console.log("Selected city:", city);
+          // Fetch events for this city
+        });
+    </script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
