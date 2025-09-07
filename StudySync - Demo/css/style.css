@@ -18,7 +18,6 @@ body {
 }
 .dropdown-menu a:hover {
   text-decoration: #0d6efd underline;
-  
 }
 h1 {
   font-weight: 800;
@@ -203,7 +202,8 @@ input {
 }
 
 .btn-primary:hover {
-  box-shadow: 0 0 15px rgba(91, 135, 229, 0.708), 0 0 30px rgba(91, 135, 229, 0.733);
+  box-shadow: 0 0 15px rgba(91, 135, 229, 0.708),
+    0 0 30px rgba(91, 135, 229, 0.733);
 }
 
 .btn-outline-primary {
@@ -213,7 +213,8 @@ input {
 }
 
 .btn-outline-primary:hover {
-  box-shadow: 0 0 15px rgba(91, 135, 229, 0.708), 0 0 30px rgba(91, 135, 229, 0.733);
+  box-shadow: 0 0 15px rgba(91, 135, 229, 0.708),
+    0 0 30px rgba(91, 135, 229, 0.733);
   background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
   color: white;
 }
@@ -249,20 +250,28 @@ input {
 #challenge-hero {
   background: linear-gradient(225deg, #36d1dc 0%, #5b86e5 100%);
   color: white;
-  text-align: center !important;
-  padding: 0rem 2rem;
   animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-wrap: break-word;
 }
 
 #challenge-hero h1 {
-  font-size: 7rem;
+  font-size: 8rem; /* Use vw for responsive font size */
+  line-height: 1; /* Adjust line-height as needed */
   font-weight: 800;
   animation: slideUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  #challenge-hero h1 {
+    font-size: 8rem; /* Increase font size for smaller screens */
+  }
+}
+
+
 @media screen and (max-width: 600px) {
   #challenge-hero h1 {
-    font-size: 4.5rem !important;
+    font-size: 3.7rem !important;
   }
 }
 
@@ -670,7 +679,7 @@ h1 {
   z-index: 2;
 }
 
-.img-testimonial{
+.img-testimonial {
   position: relative;
   z-index: 1;
   width: 120px !important;
@@ -683,7 +692,6 @@ h1 {
   z-index: 2;
   position: relative;
   bottom: 75px;
-
 }
 .img-hero-index {
   position: relative;
@@ -714,7 +722,9 @@ h1 {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 /* Glow animation */
 @keyframes glow {
@@ -740,4 +750,3 @@ h1 {
     transform: translateY(0px);
   }
 }
-
