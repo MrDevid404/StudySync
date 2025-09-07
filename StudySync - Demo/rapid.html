@@ -39,37 +39,50 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+    <!-- =========================
+         Navbar Section
+    ============================== -->
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary shadow-sm"
+      id="mainNav"
+    >
       <div class="container">
-        <a class="navbar-brand fw-bold" href="#">📚 Study<span class="text-primary">Sync</span></a>
+        <a class="navbar-brand fw-bold" href="#">
+          📚 Study<span class="text-primary">Sync</span>
+        </a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#dashboard">Dashboard</a>
+              <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#library">Library</a>
+              <a class="nav-link" href="#features">Features</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#sessions">Sessions</a>
+              <a class="nav-link" href="">Contact Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#groups">Groups</a>
+              <a class="nav-link" href="login.html">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#leaderboard">Leaderboard</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#profile">Profile</a>
+              <a
+                class="btn btn-primary rounded-pill px-4"
+                href="signup.html"
+                style="background: #106efd"
+              >
+                Get Started
+              </a>
             </li>
           </ul>
         </div>
@@ -77,13 +90,17 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="py-5" id="challenge-hero">
+    <section
+      class="py-5 d-flex justify-content-center align-items-center"
+      id="challenge-hero"
+      style="height: 100vh"
+    >
       <div class="container">
         <div class="row justify-content-center">
           <div class="section-title-one">
-            <div class="container text-wrap">
+            <div class="container">
               <div class="text-start">
-                <h1 class="fw-bold">RAPID.</h1>
+                <h1 class="fw-bold">Rapid.</h1>
               </div>
             </div>
           </div>
@@ -135,7 +152,8 @@
               <div class="card-body">
                 <h2 class="fw-bold">Stay Calm Under Pressure</h2>
                 <p class="card-text">
-                  Time challenges are exciting, but rushing can cause mistakes. Keep a cool head to move faster and smarter.
+                  Time challenges are exciting, but rushing can cause mistakes.
+                  Keep a cool head to move faster and smarter.
                 </p>
               </div>
             </div>
@@ -146,7 +164,8 @@
               <div class="card-body">
                 <h2 class="fw-bold">Focus on the First Instinct</h2>
                 <p class="card-text">
-                  Your gut answer is often correct. Don’t second-guess too much — trust your training and knowledge.
+                  Your gut answer is often correct. Don’t second-guess too much
+                  — trust your training and knowledge.
                 </p>
               </div>
             </div>
@@ -157,7 +176,8 @@
               <div class="card-body">
                 <h2 class="fw-bold">Train Like a Sprinter</h2>
                 <p class="card-text">
-                  Short, frequent practice sessions improve speed more than one long grind. Build your pace steadily over time.
+                  Short, frequent practice sessions improve speed more than one
+                  long grind. Build your pace steadily over time.
                 </p>
               </div>
             </div>
