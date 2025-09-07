@@ -26,39 +26,50 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+    <!-- =========================
+         Navbar Section
+    ============================== -->
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary shadow-sm"
+      id="mainNav"
+    >
       <div class="container">
-        <a class="navbar-brand fw-bold" href="#"
-          >📚 Study<span class="text-primary">Sync</span></a
-        >
+        <a class="navbar-brand fw-bold" href="#">
+          📚 Study<span class="text-primary">Sync</span>
+        </a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#dashboard">Dashboard</a>
+              <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#library">Library</a>
+              <a class="nav-link" href="#features">Features</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#sessions">Sessions</a>
+              <a class="nav-link" href="">Contact Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#groups">Groups</a>
+              <a class="nav-link" href="login.html">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#leaderboard">Leaderboard</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#profile">Profile</a>
+              <a
+                class="btn btn-primary rounded-pill px-4"
+                href="signup.html"
+                style="background: #106efd"
+              >
+                Get Started
+              </a>
             </li>
           </ul>
         </div>
@@ -66,22 +77,23 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="py-5" id="challenge-hero">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="section-title-one">
-            <div class="container">
-              <div class="text-start">
-                <h1 class="fw-bold" style="font-size: 6rem">
-                  Welcome to Challenges.
-                </h1>
-                <p>Put yourself to the test with Challenges!</p>
-              </div>
-            </div>
+    <!-- HERO SECTION -->
+<section class="py-5 d-flex justify-content-center align-items-center" id="challenge-hero">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="section-title-one">
+        <div class="container">
+          <div class="text-start">
+            <h1 class="fw-bold">
+              Welcome to Challenges.
+            </h1>
+            <p>Put yourself to the test with Challenges!</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- =========================
          Challenges Section
