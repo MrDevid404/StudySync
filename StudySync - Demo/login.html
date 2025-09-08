@@ -39,7 +39,7 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   </head>
 
- <style>
+  <style>
     .form-control {
       background-color: #f6f7fb;
     }
@@ -57,7 +57,7 @@
       min-height: 500px;
     }
     .other-signup a {
-      width: 300px;
+      min-width: 300px;
       max-width: 577px;
     }
     .btn-primary {
@@ -78,10 +78,11 @@
     }
   </style>
 
-
   <body>
-
-    <section class="m-0 d-flex justify-content-center align-items-center" id="login">
+    <section
+      class="m-0 d-flex justify-content-center align-items-center"
+      id="login"
+    >
       <div class="container-fluid m-0 p-0">
         <div class="row" style="height: 100vh">
           <div
@@ -102,7 +103,10 @@
               <div class="container-fluid d-flex justify-content-start">
                 <ul class="navbar-nav my-4 flex-row">
                   <li class="nav-item mx-3">
-                    <a class="nav-link px-3" aria-current="page" href="signup.html"
+                    <a
+                      class="nav-link px-3"
+                      aria-current="page"
+                      href="signup.html"
                       ><h3 class="text-dark fw-semibold">Sign Up</h3></a
                     >
                   </li>
@@ -114,13 +118,13 @@
                 </ul>
               </div>
             </nav>
-            
+
             <div
               class="d-flex flex-column justify-content-center align-items-center other-signup"
             >
-              <a href="https://accounts.google.com/" class="btn btn-outline-secondary rounded-pill px-5 py-2 m-2">
-                <i class="bi bi-google mx-2"></i> Continue with Google</a
-              >
+              <a class="btn btn-outline-secondary rounded-pill px-5 py-2 m-2">
+                  <i class="bi bi-google mx-2"></i> Login with Google</a
+                >
               <a class="btn btn-outline-secondary rounded-pill px-5 py-2 m-2">
                 <i class="bi bi-facebook mx-2"></i> Login with Facebook</a
               >
