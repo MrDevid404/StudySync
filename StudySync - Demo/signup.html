@@ -57,7 +57,7 @@
       min-height: 500px;
     }
     .other-signup a {
-      width: 300px;
+      min-width: 300px;
       max-width: 577px;
     }
     .btn-primary {
@@ -65,6 +65,10 @@
       background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
       color: white;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 15px rgba(91, 135, 229, 0.708),
+        0 0 30px rgba(91, 135, 229, 0.733);
     }
     .text-sign {
       position: fixed;
@@ -75,6 +79,9 @@
     }
     .nav-link.active {
       text-decoration: #0d6efd underline;
+    }
+    .form-select {
+      background-color: #f6f7fb;
     }
   </style>
 
@@ -116,175 +123,168 @@
                 </ul>
               </div>
             </nav>
+            <div class="d-flex justify-content-center align-items-center">
+              <a class="btn btn-outline-secondary rounded-pill px-5 py-2 m-2">
+                <i class="bi bi-google mx-2"></i> Continue with Google</a
+              >
+            </div>
+            <p class="text-muted text-center m-3">or email</p>
 
-            <div
-              class="container d-flex justify-content-center align-items-center flex-column"
-            >
-              <div class="d-flex justify-content-center align-items-center">
-                <a class="btn btn-outline-secondary rounded-pill px-5 py-2 m-2">
-                  <i class="bi bi-google mx-2"></i> Continue with Google</a
-                >
-              </div>
-              <p class="text-muted text-center m-3">or email</p>
-              <div class="container my-3">
-                <label
-                  for="birthday"
-                  class="form-label fw-semibold text-secondary"
-                >
-                  Birthday <i class="bi bi-info-circle"></i>
-                </label>
-                <div class="d-flex gap-3">
-                  <!-- Month -->
-                  <select
-                    class="form-select rounded-pill border-1 px-3"
-                    style="max-width: 160px"
+            <div class="card-body m-4 text-start">
+              <form action="data.php" method="post">
+                <div class="container my-3">
+                  <label
+                    for="birthday"
+                    class="form-label fw-semibold text-secondary"
                   >
-                    <option selected disabled>Month</option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                  </select>
+                    Birthday
+                  </label>
+                  <div class="d-flex gap-3">
+                    <!-- Month -->
+                    <select
+                      class="form-select border-1 px-3"
+                      style="max-width: 160px"
+                    >
+                      <option selected disabled>Month</option>
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
 
-                  <!-- Day -->
-                  <select
-                    class="form-select rounded-pill border-1 px-3"
-                    style="max-width: 120px"
-                  >
-                    <option selected disabled>Day</option>
-                    <!-- Generate days dynamically in real apps -->
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                    <option>11</option>
-                    <option>12</option>
-                    <option>13</option>
-                    <option>14</option>
-                    <option>15</option>
-                    <option>16</option>
-                    <option>17</option>
-                    <option>18</option>
-                    <option>19</option>
-                    <option>20</option>
-                    <option>21</option>
-                    <option>22</option>
-                    <option>23</option>
-                    <option>24</option>
-                    <option>25</option>
-                    <option>26</option>
-                    <option>27</option>
-                    <option>28</option>
-                    <option>29</option>
-                    <option>30</option>
-                    <option>31</option>
-                  </select>
+                    <!-- Day -->
+                    <select
+                      class="form-select border-1 px-3"
+                      style="max-width: 120px"
+                    >
+                      <option selected disabled>Day</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                      <option>13</option>
+                      <option>14</option>
+                      <option>15</option>
+                      <option>16</option>
+                      <option>17</option>
+                      <option>18</option>
+                      <option>19</option>
+                      <option>20</option>
+                      <option>21</option>
+                      <option>22</option>
+                      <option>23</option>
+                      <option>24</option>
+                      <option>25</option>
+                      <option>26</option>
+                      <option>27</option>
+                      <option>28</option>
+                      <option>29</option>
+                      <option>30</option>
+                      <option>31</option>
+                    </select>
 
-                  <!-- Year -->
-                  <select
-                    class="form-select rounded-pill border-1 px-3"
-                    style="max-width: 140px"
-                  >
-                    <option selected disabled>Year</option>
-                    <!-- Example years -->
-                    <option>2025</option>
-                    <option>2024</option>
-                    <option>2023</option>
-                    <option>2022</option>
-                    <option>2021</option>
-                    <option>2020</option>
-                    <option>2019</option>
-                    <option>2018</option>
-                    <option>2017</option>
-                    <option>2016</option>
-                    <option>2015</option>
-                    <option>2014</option>
-                    <option>2013</option>
-                    <option>2012</option>
-                    <option>2011</option>
-                    <option>2010</option>
-                    <option>2009</option>
-                    <option>2008</option>
-                    <option>2007</option>
-                    <option>2006</option>
-                    <option>2005</option>
-                  </select>
+                    <!-- Year -->
+                    <select
+                      class="form-select border-1 px-3"
+                      style="max-width: 140px"
+                    >
+                      <option selected disabled>Year</option>
+                      <option>2025</option>
+                      <option>2024</option>
+                      <option>2023</option>
+                      <option>2022</option>
+                      <option>2021</option>
+                      <option>2020</option>
+                      <option>2019</option>
+                      <option>2018</option>
+                      <option>2017</option>
+                      <option>2016</option>
+                      <option>2015</option>
+                      <option>2014</option>
+                      <option>2013</option>
+                      <option>2012</option>
+                      <option>2011</option>
+                      <option>2010</option>
+                      <option>2009</option>
+                      <option>2008</option>
+                      <option>2007</option>
+                      <option>2006</option>
+                      <option>2005</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
-
-              <div class="card-body my-3 text-start">
-                <form action="data.php" method="post">
-                  <div class="username-container mb-4 text-start">
-                    <p>Enter your Username</p>
-                    <input
-                      type="text"
-                      class="form-control border-0"
-                      placeholder="e.g. John Doe"
-                      id="usernameInput"
-                    />
-                  </div>
-                  <div class="username-container mb-4 text-start">
-                    <p>Enter your Email</p>
-                    <input
-                      type="email"
-                      class="form-control border-0"
-                      placeholder="e.g. username@gmail.com"
-                      id="usernameInput"
-                    />
-                  </div>
-                  <div class="password-container mb-4 text-start">
-                    <p>Enter your Password</p>
-                    <input
-                      type="password"
-                      class="form-control border-0"
-                      placeholder="******** (must not be less than 8 letters)"
-                      id="usernameInput"
-                      pattern=".{8,}"
-                      title="Password must not be less than 8 characters"
-                    />
-                  </div>
-                  <div class="password-container mb-4 text-start">
-                    <p>Confirm your Password</p>
-                    <input
-                      type="password"
-                      class="form-control border-0"
-                      placeholder="********"
-                      id="usernameInput"
-                      pattern=".{8,}"
-                      title="Password must not be less than 8 characters"
-                    />
-                  </div>
-
-                  <div class="text-center">
-                    <input
-                      type="submit"
-                      value="Sign Up"
-                      class="btn btn-primary rounded-pill py-2 px-5 m-3"
-                    />
-                  </div>
-                </form>
-
-                <p class="text-secondary text-center m-2">or</p>
-                <div class="signup m-4">
-                  <p>
-                    Already have an account?
-                    <a href="signin.html">Click here to Login.</a>
-                  </p>
+                <div class="username-container mb-4 text-start">
+                  <p>Enter your Username</p>
+                  <input
+                    type="text"
+                    class="form-control border-0"
+                    placeholder="e.g. John Doe"
+                    id="usernameInput"
+                  />
                 </div>
+                <div class="username-container mb-4 text-start">
+                  <p>Enter your Email</p>
+                  <input
+                    type="email"
+                    class="form-control border-0"
+                    placeholder="e.g. username@gmail.com"
+                    id="usernameInput"
+                  />
+                </div>
+                <div class="password-container mb-4 text-start">
+                  <p>Enter your Password</p>
+                  <input
+                    type="password"
+                    class="form-control border-0"
+                    placeholder="******** (must not be less than 8 letters)"
+                    id="usernameInput"
+                    pattern=".{8,}"
+                    title="Password must not be less than 8 characters"
+                  />
+                </div>
+                <div class="password-container mb-4 text-start">
+                  <p>Confirm your Password</p>
+                  <input
+                    type="password"
+                    class="form-control border-0"
+                    placeholder="********"
+                    id="usernameInput"
+                    pattern=".{8,}"
+                    title="Password must not be less than 8 characters"
+                  />
+                </div>
+
+                <div class="text-center">
+                  <input
+                    type="submit"
+                    value="Sign Up"
+                    class="btn btn-primary rounded-pill py-2 px-5 m-3"
+                  />
+                </div>
+              </form>
+
+              <p class="text-secondary text-center m-2">or</p>
+              <div class="signup m-4">
+                <p>
+                  Already have an account?
+                  <a href="signin.html">Click here to Login.</a>
+                </p>
               </div>
             </div>
           </div>
