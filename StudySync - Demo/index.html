@@ -43,12 +43,9 @@
     <!-- =========================
          Navbar Section
     ============================== -->
-    <nav
-      class="navbar navbar-expand-lg shadow-sm"
-      id="mainNav"
-    >
+    <nav class="navbar navbar-expand-lg shadow-sm" id="mainNav">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="#">
+        <a class="navbar-brand fw-bold" href="index.html">
           📚 Study<span class="text-primary">Sync</span>
         </a>
         <button
@@ -78,8 +75,14 @@
                 Features
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#challenges">Challenges</a></li>
-                <li><a class="dropdown-item" href="#study-sessions">Study Sessions</a></li>
+                <li>
+                  <a class="dropdown-item" href="#challenges">Challenges</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#study-sessions"
+                    >Study Sessions</a
+                  >
+                </li>
                 <li>
                   <a class="dropdown-item" href="#flashcards">Flashcards</a>
                 </li>
@@ -121,7 +124,7 @@
             <div class="col-lg-12">
               <div class="text-center">
                 <div
-                  class="content d-flex align-items-center justify-content-center flex-column my-5"
+                  class="content d-flex align-items-center justify-content-center flex-column my-5 overflow-y-hidden"
                   style="max-width: 700px"
                 >
                   <img
@@ -131,21 +134,21 @@
                   />
                   <div class="hero-text">
                     <h1 class="fw-bold mb-4">
-                    Join the Movement. Redefine Learning with StudySync!
-                  </h1>
-                  <p class="mb-4">
-                    Track your progress, join study groups, and boost your
-                    learning. Begin your journey with us now!
-                  </p>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="signup.html"
-                    class="btn btn-primary btn-lg rounded-pill py-3 px-5"
-                  >
-                    Register Here
-                    <i class="bi bi-arrow-up-right"></i>
-                  </a>
+                      Join the Movement. Redefine Learning with StudySync!
+                    </h1>
+                    <p class="mb-4">
+                      Track your progress, join study groups, and boost your
+                      learning. Begin your journey with us now!
+                    </p>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="signup.html"
+                      class="btn btn-primary btn-lg rounded-pill py-3 px-5"
+                    >
+                      Register Here
+                      <i class="bi bi-arrow-up-right"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -182,10 +185,9 @@
                 >
                   <select class="form-select border-0" id="categorySelect">
                     <option selected>All Categories</option>
-                    <option value="1">Math</option>
-                    <option value="2">Physics</option>
-                    <option value="3">Chemistry</option>
-                    <option value="4">Economics</option>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                    <option value="3">Category 3</option>
                   </select>
                   <input
                     type="search"
@@ -248,10 +250,7 @@
     <!-- =========================
         Challenges Section
     ============================== -->
-    <section
-      class="mx-3 my-3 d-flex align-items-center my-3"
-      id="challenges"
-    >
+    <section class="mx-3 my-3 d-flex align-items-center my-3" id="challenges">
       <div class="container text-start">
         <div class="container m-3">
           <div class="row g-3" id="challengesRow">
@@ -360,7 +359,7 @@
                 amet consectetur adipisicing elit. Inventore tempora ducimus
                 cupiditate voluptates. Nobis, atque!
               </p>
-              <a href="library.html" class="btn btn-primary btn-lg p-3 rounded-pill"
+              <a href="#" class="btn btn-primary btn-lg p-3 rounded-pill"
                 >View Library</a
               >
             </div>
@@ -370,7 +369,7 @@
     </section>
 
     <!-- =========================
-         Community Section
+     Community Section
     ============================== -->
     <section
       class="d-flex align-items-center text-dark p-5 my-5"
@@ -397,7 +396,7 @@
                 </p>
                 <a
                   href="groups.html"
-                  class="btn btn-primary btn-lg py-3 px-5 rounded-pill" 
+                  class="btn btn-primary btn-lg py-3 px-5 rounded-pill"
                   >Connect</a
                 >
               </div>
@@ -423,7 +422,10 @@
       id="reviews-section"
       style="height: 100%"
     >
-      <div class="container text-center my-5 mb-0" style="max-width: 540px">
+      <div
+        class="container text-center my-5 mb-0 overflow-y-hidden"
+        style="max-width: 540px"
+      >
         <img src="images/idea_1421780.png" alt="" class="img-testimonial" />
         <div class="text-testimonials">
           <h1 class="fw-bold text-dark h1-testimonial">
@@ -465,7 +467,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     href="signup.html"
-                    class="btn btn-primary py-3 px-5 m-3"
+                    class="btn btn-primary py-3 px-5 me-3"
                     >Register</a
                   >
                   <a
@@ -703,5 +705,3 @@
     <script src="js/script.js"></script>
   </body>
 </html>
-
-
