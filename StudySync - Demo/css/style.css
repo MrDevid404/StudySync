@@ -7,7 +7,7 @@ body {
   color: #333; /* Default text color */
 }
 .shadow-sm {
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.513) !important;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.256) !important;
 }
 .dropdown-menu {
   border-radius: 0px;
@@ -795,4 +795,5 @@ h1 {
     transform: translateY(2px);
   }
 }
+
 
